@@ -149,7 +149,7 @@ class SimulacrumInjection extends SyntheticMembersInjector {
                     //but with .AllOps it will go into companion object
                     (for {
                       ScParameterizedTypeElement(pte, _) <- Option(te)
-                      ScSimpleTypeElement(Some(ref)) <- Option(pte)
+                      ScSimpleTypeElement(ref) <- Option(pte)
                     } yield Seq(s" with ${ref.getText}.AllOps[$tpName$additionalWithComma]")).getOrElse(fromType)
                   case _ => Seq.empty
                 }

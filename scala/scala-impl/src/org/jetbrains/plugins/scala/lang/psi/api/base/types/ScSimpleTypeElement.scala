@@ -36,5 +36,5 @@ trait ScSimpleTypeElement extends ScTypeElement with ImplicitParametersOwner {
 }
 
 object ScSimpleTypeElement {
-  def unapply(te: ScSimpleTypeElement): Option[Option[ScStableCodeReferenceElement]] = Some(te.reference)
+  def unapply(te: ScSimpleTypeElement): Option[ScStableCodeReferenceElement] = te.reference
 }

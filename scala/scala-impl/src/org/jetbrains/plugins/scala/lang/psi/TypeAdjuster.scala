@@ -182,7 +182,7 @@ object TypeAdjuster extends ApplicationAdapter {
 
   private def findRef(elem: PsiElement): Option[ScReferenceElement] = elem match {
     case r: ScReferenceElement => Some(r)
-    case ScSimpleTypeElement(Some(r)) => Some(r)
+    case ScSimpleTypeElement(r) => Some(r)
     case _ => None
   }
 
@@ -221,7 +221,7 @@ object TypeAdjuster extends ApplicationAdapter {
       @scala.annotation.tailrec
       private def qualifier(elem: PsiElement): Option[ScReferenceElement] = {
         elem match {
-          case ScSimpleTypeElement(Some(ref: ScReferenceElement)) => qualifier(ref)
+          case ScSimpleTypeElement(ref: ScReferenceElement) => qualifier(ref)
           case ScReferenceElement.withQualifier(qual: ScReferenceElement) => Some(qual)
           case _ => None
         }

@@ -66,8 +66,8 @@ object ScTemplateParents {
         }
 
       val maybeReference = element match {
-        case ScSimpleTypeElement(result) => result
-        case ScParameterizedTypeElement(ScSimpleTypeElement(result), _) => result
+        case ScSimpleTypeElement(result) => Some(result)
+        case ScParameterizedTypeElement(ScSimpleTypeElement(result), _) => Some(result)
         case _ => None
       }
 

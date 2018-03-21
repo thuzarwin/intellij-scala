@@ -1168,8 +1168,8 @@ abstract class ScalaAnnotator extends Annotator
           }
         case (_: ScTypeArgs) childOf (parameterized: ScParameterizedTypeElement) =>
           parameterized.typeElement match {
-            case ScSimpleTypeElement(Some(ResolvesTo(owner: ScTypeParametersOwner))) => noHigherKinds(owner)
-            case ScSimpleTypeElement(Some(ResolvesTo(ScPrimaryConstructor.ofClass(c)))) => noHigherKinds(c)
+            case ScSimpleTypeElement(ResolvesTo(owner: ScTypeParametersOwner)) => noHigherKinds(owner)
+            case ScSimpleTypeElement(ResolvesTo(ScPrimaryConstructor.ofClass(c))) => noHigherKinds(c)
             case _ => false
           }
         case infix: ScReferenceableInfixTypeElement if infix.leftTypeElement == simpleTypeElement || infix.rightTypeElement.contains(simpleTypeElement) =>

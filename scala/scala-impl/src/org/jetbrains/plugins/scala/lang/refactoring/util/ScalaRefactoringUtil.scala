@@ -658,7 +658,7 @@ object ScalaRefactoringUtil {
           case Some(_) => builder.append(" {...}")
           case _ =>
         }
-      case p : ScParenthesizedElement[_] =>
+      case p : ScParenthesizedElement =>
         builder.append("(")
         p.innerElement match {
           case Some(sub) => builder.append(getShortText(sub))
